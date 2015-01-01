@@ -31,6 +31,8 @@ public class PcWorldRssParser {
 		parser.require(XmlPullParser.START_TAG, null, "rss");
 		String title = null;
 		String link = null;
+        String thumb = null;
+
 		List<RssItem> items = new ArrayList<RssItem>();
 		while (parser.next() != XmlPullParser.END_DOCUMENT) {
 			if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -41,12 +43,15 @@ public class PcWorldRssParser {
 				title = readTitle(parser);
 			} else if (name.equals("link")) {
 				link = readLink(parser);
-			}
-			if (title != null && link != null) {
-				RssItem item = new RssItem(title, link);
+			} else if (name.equals("media:thumbnail")) {
+                thumb = parser.getAttributeValue(null, "url");
+            }
+			if (title != null && link != null && thumb != null) {
+				RssItem item = new RssItem(title, link, thumb);
 				items.add(item);
 				title = null;
 				link = null;
+                thumb = null;
 			}
 		}
 		return items;

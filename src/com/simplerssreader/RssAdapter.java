@@ -6,6 +6,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RssAdapter extends BaseAdapter {
@@ -40,15 +41,18 @@ public class RssAdapter extends BaseAdapter {
 			convertView = View.inflate(context, R.layout.rss_item, null);
 			holder = new ViewHolder();
 			holder.itemTitle = (TextView) convertView.findViewById(R.id.itemTitle);
-			convertView.setTag(holder);
+			holder.itemImage = (ImageView) convertView.findViewById(R.id.itemImage);
+            convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		holder.itemTitle.setText(items.get(position).getTitle());
+        new ImageDownloader(holder.itemImage).execute(items.get(position).getUrl());
 		return convertView;
 	}
 
 	static class ViewHolder {
 		TextView itemTitle;
+        ImageView itemImage;
 	}
 }
