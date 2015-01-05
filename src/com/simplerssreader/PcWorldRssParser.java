@@ -8,6 +8,7 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.util.Log;
 import android.util.Xml;
 
 public class PcWorldRssParser {
@@ -17,44 +18,61 @@ public class PcWorldRssParser {
 
 	public List<RssItem> parse(InputStream inputStream) throws XmlPullParserException, IOException {
 		try {
-			XmlPullParser parser = Xml.newPullParser();
-			parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-			parser.setInput(inputStream, null);
-			parser.nextTag();
-			return readFeed(parser);
+            XmlPullParser parser = Xml.newPullParser();
+            parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+            parser.setInput(inputStream, null);
+            parser.nextTag();
+            return readFeed(parser);
+        }catch (XmlPullParserException e) {
+            Log.e(null, "Pull Parser Exception in Parse");
+            e.printStackTrace();
+            return null;
+        } catch (IOException e) {
+            Log.e(null, "IO Exception in Parse");
+            e.printStackTrace();
+            return null;
 		} finally {
 			inputStream.close();
 		}
 	}
 
 	private List<RssItem> readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
-		parser.require(XmlPullParser.START_TAG, null, "rss");
-		String title = null;
-		String link = null;
-        String thumb = null;
+		try {
+            parser.require(XmlPullParser.START_TAG, null, "rss");
+            String title = null;
+            String link = null;
+            String thumb = null;
 
-		List<RssItem> items = new ArrayList<RssItem>();
-		while (parser.next() != XmlPullParser.END_DOCUMENT) {
-			if (parser.getEventType() != XmlPullParser.START_TAG) {
-				continue;
-			}
-			String name = parser.getName();
-			if (name.equals("title")) {
-				title = readTitle(parser);
-			} else if (name.equals("link")) {
-				link = readLink(parser);
-			} else if (name.equals("media:thumbnail")) {
-                thumb = parser.getAttributeValue(null, "url");
+            List<RssItem> items = new ArrayList<RssItem>();
+            while (parser.next() != XmlPullParser.END_DOCUMENT) {
+                if (parser.getEventType() != XmlPullParser.START_TAG) {
+                    continue;
+                }
+                String name = parser.getName();
+                if (name.equals("title")) {
+                    title = readTitle(parser);
+                } else if (name.equals("link")) {
+                    link = readLink(parser);
+                } else if (name.equals("media:thumbnail")) {
+                    thumb = parser.getAttributeValue(null, "url");
+                } if(name.equals("description")) {
+                    parser.next();
+                }
+                if (title != null && link != null && thumb != null) {
+                    RssItem item = new RssItem(title, link, thumb);
+                    items.add(item);
+                    title = null;
+                    link = null;
+                    thumb = null;
+                }
             }
-			if (title != null && link != null && thumb != null) {
-				RssItem item = new RssItem(title, link, thumb);
-				items.add(item);
-				title = null;
-				link = null;
-                thumb = null;
-			}
-		}
-		return items;
+            return items;
+        } catch (XmlPullParserException e) {
+            Log.e(Constants.TAG, "XML Pull exception in readfeed");
+        } catch (IOException e) {
+            Log.e(Constants.TAG, "IO exception in readfeed");
+        }
+        return null;
 	}
 
 	private String readLink(XmlPullParser parser) throws XmlPullParserException, IOException {
