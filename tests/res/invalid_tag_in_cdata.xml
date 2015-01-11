@@ -1,0 +1,42 @@
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title>PCWorld</title>
+        <link>http://www.pcworld.com</link>
+        <description></description>
+        <language>en-us</language>
+        <pubDate>Tue, 06 Jan 2015 20:15:20 -0800</pubDate>
+        <lastBuildDate>Tue, 06 Jan 2015 20:15:20 -0800</lastBuildDate>
+        <item>
+
+            <title>AllJoyn IoT platform reaches out to the Internet for remote control</title>
+
+            <pubDate>Tue, 06 Jan 2015 19:10:11 -0800</pubDate>
+
+
+
+
+            <author>Stephen Lawson</author>
+            <dc:creator>Stephen Lawson</dc:creator>
+
+
+
+
+            <description><![CDATA[<article>
+	<section class="page">
+<p>The AllJoyn system for connecting and controlling multiple Internet of Things devices can now reach beyond a home or office.</p><p>The AllJoyn Gateway Agent, announced at International CES, is software that could allow for remote use and management of multiple AllJoyn devices. It takes AllJoyn beyond local networks, allowing cloud services to stay in touch with devices and users to control them remotely.</p><p>Behind the flash of the IoT devices being unveiled at this year’s CES, the apps and day-to-day services that come with them may be even more important than the hardware. Easy setup and ongoing support will also play major roles in determining whether consumers embrace the new technologies or go back to doing things the old, unconnected way.</p><p class="jumpTag"><a href="/article/2866252/alljoyn-iot-platform-reaches-out-to-the-internet-for-remote-control.html#jump">To read this article in full or to leave a comment, please click here</a></p></section></article>]]></description>
+
+            <link>http://www.pcworld.com/article/2866252/alljoyn-iot-platform-reaches-out-to-the-internet-for-remote-control.html#tk.rss_all</link>
+
+
+
+            <media:thumbnail url="http://zapt1.staticworld.net/images/article/2013/11/pcworld-idgns-primaryimage-100154539-medium.png"/>
+            <media:content url="http://zapt1.staticworld.net/images/article/2013/11/pcworld-idgns-primaryimage-100154539-medium.png"/>
+
+
+
+
+
+
+        </item>
+        </channel>
+    </rss>

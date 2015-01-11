@@ -29,7 +29,7 @@ public class RssService extends IntentService {
 		Log.d(Constants.TAG, "Service started");
 		List<RssItem> rssItems = null;
 		try {
-			PcWorldRssParser parser = new PcWorldRssParser();
+			RssParser parser = new RssParser();
 			rssItems = parser.parse(getInputStream(RSS_LINK));
 		} catch (XmlPullParserException e) {
 			Log.w(e.getMessage(), e);

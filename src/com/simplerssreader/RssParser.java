@@ -11,7 +11,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import android.util.Log;
 import android.util.Xml;
 
-public class PcWorldRssParser {
+public class RssParser {
 
 	// We don't use namespaces
 	private final String ns = null;

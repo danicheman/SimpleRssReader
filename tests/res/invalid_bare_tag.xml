@@ -1,0 +1,25 @@
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title>PCWorld</title>
+        <link>http://www.pcworld.com</link>
+        <description></description>
+        <language>en-us</language>
+        <pubDate>Tue, 06 Jan 2015 20:15:20 -0800</pubDate>
+        <lastBuildDate>Tue, 06 Jan 2015 20:15:20 -0800</lastBuildDate>
+        <item>
+
+            <title>AllJoyn IoT platform reaches out to the Internet for remote control</title>
+
+            <pubDate>Tue, 06 Jan 2015 19:10:11 -0800</pubDate>
+
+            <author>Stephen Lawson</author>
+            <dc:creator>Stephen Lawson</dc:creator>
+            <description><script></script></description>
+
+            <link>http://www.pcworld.com/article/2866252/alljoyn-iot-platform-reaches-out-to-the-internet-for-remote-control.html#tk.rss_all</link>
+            <media:thumbnail url="http://zapt1.staticworld.net/images/article/2013/11/pcworld-idgns-primaryimage-100154539-medium.png"/>
+            <media:content url="http://zapt1.staticworld.net/images/article/2013/11/pcworld-idgns-primaryimage-100154539-medium.png"/>
+
+        </item>
+    </channel>
+</rss>
